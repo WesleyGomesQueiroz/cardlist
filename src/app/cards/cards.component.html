@@ -1,0 +1,41 @@
+<div class="main">
+    <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let item of obj">
+          <div class="card">
+            <img src="{{item.img}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.produto}} - {{item.valor | currency : 'BRL'}}</h5>
+              <p class="card-text">{{item.obs}}</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+    <div class="container">
+        <h2 class="text-secondary text-center">{{ title }}!</h2>
+        <hr />
+        <div>
+            <div> </div>
+            <table class="table table-bordered">
+                <tbody>
+                        <div class="row row-cols-1 row-cols-md-3 g-4" >
+                            <div class="col" *ngFor="let item of obj | paginate: { itemsPerPage: contador, currentPage: pag }">
+                                <div class="card">
+                                    <img src="{{item.img}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{item.produto}} - {{item.valor | currency : 'BRL'}}</h5>
+                                        <p class="card-text">{{item.obs}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </tbody>
+            </table>
+        </div>
+        <!--inclindo o controle de paginação.-->
+        <div class="text-right">
+            <pagination-controls (pageChange)="pag = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
